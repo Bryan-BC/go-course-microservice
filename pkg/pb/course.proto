@@ -10,10 +10,21 @@ service CourseService {
     rpc DeleteCourse(DeleteCourseRequest) returns (DeleteCourseResponse) {}
 }
 
+message IntTuple {
+    int64 first = 1;
+    int64 second = 2;
+}
+
+message Day {
+    string day = 1;
+    repeated IntTuple timeslots = 2;
+}
+
 message Course {
     string id = 1;
     string name = 2;
     string description = 3;
+    repeated Day schedule = 4;
 }
 
 message GetCourseRequest {

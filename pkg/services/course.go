@@ -29,6 +29,7 @@ func (s *Server) GetCourse(ctx context.Context, req *pb.GetCourseRequest) (*pb.G
 			Id:          course.Id,
 			Name:        course.Name,
 			Description: course.Description,
+			Schedule:    course.Schedule,
 		},
 	}, nil
 }
@@ -46,6 +47,7 @@ func (s *Server) CreateCourse(ctx context.Context, req *pb.CreateCourseRequest) 
 	course.Id = req.Course.Id
 	course.Name = req.Course.Name
 	course.Description = req.Course.Description
+	course.Schedule = req.Course.Schedule
 
 	if result := s.DBPointer.DataBase.Create(&course); result.Error != nil {
 		return &pb.CreateCourseResponse{
