@@ -58,6 +58,12 @@ func (s *Server) CreateCourse(ctx context.Context, req *pb.CreateCourseRequest) 
 
 	return &pb.CreateCourseResponse{
 		Status: http.StatusCreated,
+		Course: &pb.Course{
+			Id:          course.Id,
+			Name:        course.Name,
+			Description: course.Description,
+			Schedule:    course.Schedule,
+		},
 	}, nil
 }
 

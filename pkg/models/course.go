@@ -7,7 +7,7 @@ import (
 	"github.com/Bryan-BC/go-course-microservice/pkg/pb"
 )
 
-type Days []*pb.Day
+type Days []*pb.CourseIndex
 
 type Course struct {
 	Id          string `json:"id" gorm:"primary_key"`

@@ -18,13 +18,13 @@ func LoadConfig() (*Config, error) {
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err != nil {
-		log.Panicf("Error config file: %s \n", err)
+		log.Panicf("Error reading config file: %s \n", err)
 		return nil, err
 	}
 
 	var c Config
 	if err := viper.Unmarshal(&c); err != nil {
-		log.Panicf("Error config file: %s \n", err)
+		log.Panicf("Error unmarshalling config: %s \n", err)
 		return nil, err
 	}
 
